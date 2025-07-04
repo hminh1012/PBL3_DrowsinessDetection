@@ -1,9 +1,9 @@
 # PBL3: ARTIFICIAL INTELLIGENCE FOR INTEGRATED SYSTEM AND APPLICATION
 Use OpenCV, dlib to check for drowsiness on Raspberry Pi 4, connect with Firebase and Thunkable
 
-Reference: https://miai.vn/2020/02/26/computer-vision-pi-chuong-3-lap-dat-pi-tren-xe-hoi-de-phat-hien-tai-xe-ngu-gat/
+Cre: https://miai.vn/2020/02/26/computer-vision-pi-chuong-3-lap-dat-pi-tren-xe-hoi-de-phat-hien-tai-xe-ngu-gat/
 
-Download file đã train: https://www.mediafire.com/file/1c8qfqbs662x22j/shape_predictor_68_face_landmarks.dat/file
+Download the origin trained file: https://www.mediafire.com/file/1c8qfqbs662x22j/shape_predictor_68_face_landmarks.dat/file
 
 
 # Drowsiness Recognition System
@@ -39,6 +39,8 @@ The system is built around a **Raspberry Pi 4 Model B** and includes:
   - Identifies 68 facial landmarks with Dlib to calculate EAR for drowsiness detection.
   - Sends alerts via audio and WhatsApp notifications through the CallMeBot API.
 
+![WiringDiagram](https://github.com/hminh1012/PBL3_DrowsinessDetection/blob/288083382c73c41a1a22481f7c49733fdec4c7a4/img/WiringDiagram.png)
+
 Key features:
 - **Real-Time Detection**: Monitors eye closure and head movements.
 - **Alerts**: Triggers audio alerts and WhatsApp messages when drowsiness is detected.
@@ -61,6 +63,8 @@ The hardware setup includes:
 - **Rapoo C200 USB Webcam** for video capture.
 - **PC Speaker** or vehicle audio system for alerts.
 
+![setup](https://github.com/hminh1012/PBL3_DrowsinessDetection/blob/288083382c73c41a1a22481f7c49733fdec4c7a4/img/Setup.png)
+
 Software stack:
 - **Python** for system development.
 - **OpenCV** for image processing and Haar Cascade face detection.
@@ -80,6 +84,8 @@ The **Thunkable-based mobile app** provides:
 
 The app connects to the Firebase real-time database (e.g., `https://pidrowsiness-277a4-default-rtdb.firebaseio.com`) for seamless data access.
 
+![app](https://github.com/hminh1012/PBL3_DrowsinessDetection/blob/288083382c73c41a1a22481f7c49733fdec4c7a4/img/PhoneApp.png)
+
 ## Results
 The system achieved high accuracy in controlled environments, with slightly reduced performance in low-light conditions (e.g., nighttime with streetlights). Key findings:
 - **Lab Testing**: High accuracy for straight and tilted face angles.
@@ -87,15 +93,19 @@ The system achieved high accuracy in controlled environments, with slightly redu
 - **Glasses Impact**: Minimal effect on detection, but sunglasses prevent eye detection.
 - **Evaluation Metrics**: Detailed in Tables 12–14, covering eye state recognition under various conditions.
 
+![result](https://github.com/hminh1012/PBL3_DrowsinessDetection/blob/288083382c73c41a1a22481f7c49733fdec4c7a4/img/Drowsiness_demo.png)
+
 ## Repository Structure (on-going)
 ```
 Drowsiness-Recognition/
 ├── src/
-│   ├── face_detection.py         # Face detection using HOG + SVM
-│   ├── landmark_detection.py     # Dlib facial landmark detection
-│   ├── ear_calculation.py        # Eye Aspect Ratio calculation
-│   ├── alert_system.py           # Audio and WhatsApp alert system
-│   ├── firebase_integration.py   # Firebase real-time database integration
+│   ├── alarm.wav                               # Audio alert system
+│   ├── haarcascade_frontalface_default.xml     # HaarCascade facial detection
+   
+│   ├── main.py                                 # Main file
+│   ├── shape_predictor_68_face_landmarks.dat   # Dlib facial landmark detection
+     
+
 ├── docs/
 │   ├── Report_PBL3_Team_4.pdf   # Project documentation
 ├── README.md                    # Project overview and instructions
@@ -113,27 +123,27 @@ Drowsiness-Recognition/
   - Thunkable for mobile app
   - CallMeBot API for WhatsApp integration
 - **Dependencies**:
-  - Install Python libraries: `pip install opencv-python dlib imutils numpy firebase-admin`
+  - Install Python libraries (optional): `pip install opencv-python dlib imutils numpy firebase-admin` 
 
 ## Installation (on-going)
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/Drowsiness-Recognition.git
+    https://github.com/hminh1012/PBL3_DrowsinessDetection.git
    ```
 2. Set up the Raspberry Pi 4 with the webcam and speaker.
 3. Install dependencies:
    ```bash
-   pip install opencv-python dlib imutils numpy firebase-admin
+   pip install -r setup.txt
    ```
-4. Configure Firebase credentials in `firebase_integration.py`.
-5. Set up the Thunkable app and CallMeBot API for notifications.
-6. Deploy the mobile app on a compatible device (iOS/Android).
+
+4. Set up the Thunkable app and CallMeBot API for notifications.
+5. Deploy the mobile app on a compatible device (iOS/Android).
 
 ## Usage
 1. Connect and power on the Raspberry Pi with the webcam and speaker.
 2. Run the main script:
    ```bash
-   python src/face_detection.py
+   python main.py
    ```
 3. Monitor real-time detection via the Thunkable app.
 4. Test the alert system by simulating drowsiness (e.g., closing eyes for a prolonged period).
