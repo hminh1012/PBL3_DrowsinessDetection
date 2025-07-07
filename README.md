@@ -11,6 +11,10 @@ Download the origin trained file: https://www.mediafire.com/file/1c8qfqbs662x22j
 ## Overview
 This project, developed by Nguyen Thi Tam, Tran Hoang Minh, and Le Tu Bao Khanh from the 21ECE class at The University of Science and Technology, Da Nang, focuses on a **Drowsiness Recognition System** to enhance road safety by detecting driver fatigue. The system uses AI-based facial landmark detection to identify signs of drowsiness and alert drivers, integrated with a mobile application for real-time notifications. The project was mentored by Associate Professor Dr. Pham Van Tuan and teaching assistant Mr. Ho Xuan Dat, completed on June 14, 2024.
 
+Here's the quick demo
+![Bản sao của Group4_Demo (1)](https://github.com/user-attachments/assets/ea13ed13-ee64-4535-8e93-71080ba35b3e)
+
+
 ## Table of Contents
 - [Project Description](#project-description)
 - [System Design](#system-design)
